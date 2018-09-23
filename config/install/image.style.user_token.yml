@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: user_token
-label: 'User Avatar'
+label: 'User Token Style'
 effects:
   f4169ee9-b899-4585-9d38-74c160409f20:
     uuid: ''

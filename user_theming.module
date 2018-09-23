@@ -1,10 +1,9 @@
 <?php
 
-function user_theming_theme_suggestions_user_alter(&$suggestions, $variables, $hook) {
-
-    $mode = $variables['elements']['#view_mode'];
-    $suggestions[] = 'user__' . $mode;
-    
+function user_theming_theme_suggestions_user(array $variables) {
+    return [
+        'user__' . $variables['elements']['#view_mode']
+    ];
 }
 
 function user_theming_theme($existing, $type, $theme, $path) {
@@ -23,12 +22,6 @@ function user_theming_theme($existing, $type, $theme, $path) {
           'base hook' => 'user',
         ],
       ];
-    
-}
-
-function user_theming_preprocess_page(&$variables) {
-    
-    $variables['#attached']['library'][] = 'user_theming/styles';
     
 }
 

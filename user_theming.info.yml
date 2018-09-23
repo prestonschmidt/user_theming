@@ -1,7 +1,7 @@
 name: User Theming
 type: module
 description: 'Creates usable views blocks of users. Provides user template files and styling. '
-package: Tinsel
+package: Prototype
 core: 8.x
 hidden: false
 dependencies:

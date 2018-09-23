@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: user_compact
-label: 'User Avatar'
+label: 'User Compact Style'
 effects:
   f4169ee9-b899-4585-9d38-74c160409f20:
     uuid: ''
