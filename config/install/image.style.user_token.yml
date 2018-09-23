@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: user_token
+label: 'User Avatar'
+effects:
+  f4169ee9-b899-4585-9d38-74c160409f20:
+    uuid: ''
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 480
+      upscale: false

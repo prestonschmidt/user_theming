@@ -1,0 +1,41 @@
+.arrows() {
+    background: @overlay-brand;
+    
+    &:before {
+        content: "";
+        .translateY();
+        left: 20px;
+        width: 15px;
+        height: 15px;
+        border-top: 2px solid #fff;
+        border-left: 2px solid #fff;
+        opacity: 0;
+        border-radius: 2px;
+        .rotate(-45deg);
+    }
+    
+    &:after {
+        content: "";
+        .translateY();
+        right: 20px;
+        width: 15px;
+        height: 15px;
+        opacity: 0;
+        border-radius: 2px;
+        border-top: 2px solid #fff;
+        border-right: 2px solid #fff;
+        .rotate(45deg);
+    }
+    
+    &:hover:before {
+        -webkit-animation: wobbleLeft 1s ease-in-out infinite;
+        animation: wobbleLeft 1s ease-in-out infinite;
+        opacity: 1;
+    }
+    
+    &:hover:after {
+        -webkit-animation: wobbleRight 1s ease-in-out infinite;
+        animation: wobbleRight 1s ease-in-out infinite;
+        opacity: 1;
+    }
+}

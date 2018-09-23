@@ -1,0 +1,6 @@
+{% if content.user_picture or user.name.0.value %}
+    <div class="user-compact-wrapper">
+        {{ content.user_picture }}
+        <p>{{ user.name.0.value }}{% if user.login.0.value > 0 %}<span class="mark-active-user"></span>{% endif %}</p>
+    </div>
+{% endif %}

@@ -1,0 +1,35 @@
+<?php
+
+function user_theming_theme_suggestions_user_alter(&$suggestions, $variables, $hook) {
+
+    $mode = $variables['elements']['#view_mode'];
+    $suggestions[] = 'user__' . $mode;
+    
+}
+
+function user_theming_theme($existing, $type, $theme, $path) {
+    
+    return [
+        'user__full' => [
+          'template' => 'user--full',
+          'base hook' => 'user',
+        ],
+        'user__compact' => [
+          'template' => 'user--compact',
+          'base hook' => 'user',
+        ],
+        'user__token' => [
+          'template' => 'user--token',
+          'base hook' => 'user',
+        ],
+      ];
+    
+}
+
+function user_theming_preprocess_page(&$variables) {
+    
+    $variables['#attached']['library'][] = 'user_theming/styles';
+    
+}
+
+?>
