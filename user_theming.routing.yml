@@ -1,0 +1,7 @@
+user_theming.settings:
+  path: '/admin/config/user-theming'
+  defaults:
+    _form: '\Drupal\user_theming\Form\UserThemingConfigurationForm'
+    _title: 'User Theming Module Configuration'
+  requirements:
+    _permission: 'administer site configuration'

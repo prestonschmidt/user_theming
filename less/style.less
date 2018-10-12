@@ -1,0 +1,271 @@
+//***-> Imports: ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+@import 'variables';
+@import 'mixins';
+
+
+//***-> User Default Styles ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+.user-full-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    display: grid;
+    -ms-grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 15px;
+    align-items: top;
+
+    .user-item {
+        border: 1px solid #f3f3f3;
+        padding: 10px;
+    }
+    
+    .user-full-image-wrapper {
+        position: relative;
+        
+        img {
+            display: block;
+        }
+    }
+    
+    h2 {
+        padding: 0 0 15px 0;
+    }
+    
+    h3 {
+        padding: 0;
+        margin: 0;
+        font-size: 310%;
+        font-weight: 300;
+        
+        * {
+            font-size: 100%;
+        }
+    }
+    
+    p {
+        padding: 0;
+        margin: 0;
+        font-size: 90%;
+        color: #777;
+        
+        * {
+            font-size: 100%;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+//***-> User Token Styles ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+.user-token-wrapper {
+    position: relative;
+    padding: 0;
+    margin: 0;
+
+    .user-token-content-wrapper {
+
+        img {
+            display: block;
+        }
+
+        a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+        }
+
+        p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: block;
+            padding: 4px 0;
+            margin: 0;
+            text-align: center;
+            font-size: 80%;
+            color: #000;
+            background: rgba(255, 255, 255, 0.5);
+            z-index: 200;
+        }
+        
+        span.mark-active-user {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: @color-green;
+            z-index: 100;
+        }
+    }    
+}
+
+.view-users-token-views-block {
+    
+    .views-content-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        display: grid;
+        -ms-grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-auto-rows: auto;
+        grid-gap: 15px;
+        align-items: top;
+    }
+}
+
+@media screen and (min-width: @breakpoint-medium) {
+        
+    .user-token-wrapper {
+
+        a {
+            .transition(0.2s);
+
+            &:hover {
+                background: @overlay-brand;
+                .arrows();
+            }
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+
+//***-> User Compact Styles ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+.user-compact-wrapper {
+    position: relative;
+    padding: 0 20px 0 0;
+    margin: 0 10px 0 0;
+
+    a {
+        position: relative;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+        
+        img {
+            .translateXY();
+        }
+        
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: @overlay-brand;
+            z-index: 10;
+            opacity: 0;
+        }
+        
+        &:after {
+            content: "";
+            position: absolute;
+            top: 38%;
+            left: 30%;
+            width: 15px;
+            height: 15px;
+            opacity: 0;
+            border-radius: 2px;
+            border-top: 2px solid #fff;
+            border-right: 2px solid #fff;
+            .rotate(45deg);
+            z-index: 20;
+            opacity: 0;
+        }
+    }
+
+    p {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 0 0 10px;
+        margin: 0;
+        font-size: 80%;
+        color: @color-dark;
+        
+        span.mark-active-user {
+            position: absolute;
+            top: 5px;
+            right: -15px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: @color-green;
+            z-index: 100;
+        }
+    }
+}
+
+.view-users-compact-views-block {
+    
+    .views-content-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        display: grid;
+        -ms-grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-auto-rows: auto;
+        grid-gap: 15px;
+        align-items: top;
+    }
+}
+
+@media screen and (min-width: @breakpoint-medium) {
+        
+    .user-compact-wrapper {
+
+        a {
+            .transition(0.2s);
+
+            &:hover {
+                border-radius: 0;
+                
+                &:before {
+                    .transition(0.2s);
+                    opacity: 1;
+                }
+                
+                &:after {
+                    .transition(0.2s);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+
+

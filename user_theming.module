@@ -1,10 +1,26 @@
 <?php
 
+
+
+
+
+
+
+
+
 function user_theming_theme_suggestions_user(array $variables) {
     return [
         'user__' . $variables['elements']['#view_mode']
     ];
 }
+
+
+
+
+
+
+
+
 
 function user_theming_theme($existing, $type, $theme, $path) {
     
@@ -24,5 +40,37 @@ function user_theming_theme($existing, $type, $theme, $path) {
       ];
     
 }
+
+
+
+
+
+
+
+
+
+/**
+ ** Add our styles library.
+**/
+
+function user_theming_preprocess_page(&$variables) {
+    
+    $config = \Drupal::config('user_theming.user_theming_settings');
+    $useModuleStylesRadio = $config->get('use_module_styles');
+    
+    if ($useModuleStylesRadio == 'yes') {
+        $variables['#attached']['library'][] = 'user_theming/styles';
+    }
+    
+}
+
+
+
+
+
+
+
+
+
 
 ?>
