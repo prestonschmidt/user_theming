@@ -66,7 +66,7 @@ function user_theming_preprocess_page(&$variables) {
     $config = \Drupal::config('user_theming.user_theming_settings');
     $useModuleStylesRadio = $config->get('use_module_styles');
     
-    if ($useModuleStylesRadio == 'yes') {
+    if ($useModuleStylesRadio != 'no') {
         $variables['#attached']['library'][] = 'user_theming/styles';
     }
     

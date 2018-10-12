@@ -67,10 +67,12 @@ class UserThemingConfigurationForm extends ConfigFormBase {
             '#weight' => 10,
             '#markup' => t('
 <h3>This module provides:</h3>
-<p><strong>Display Modes:</strong> Full, Compact, Token</p>
-<p><strong>Template Files:</strong> user--full.html.twig, user--compact.html.twig, user--token.html.twig</p>
-<p><strong>Views:</strong> user_compact_views_block, user_token_views_block</p>
-<p><strong>Fields:</strong> User First Name, User Last Name, User Title, User Picture</p>
+<ul>
+<li><strong>Display Modes:</strong> Full, Compact, Token</li>
+<li><strong>Template Files:</strong> user--full.html.twig, user--compact.html.twig, user--token.html.twig</li>
+<li><strong>Views:</strong> users_compact_views_block, users_token_views_block</li>
+<li><strong>Fields:</strong> field_user_first_name, field_user_last_name, field_user_title, user_picture</li>
+</ul>
             '),
         ];
         
@@ -78,7 +80,7 @@ class UserThemingConfigurationForm extends ConfigFormBase {
             '#type' => 'item',
             '#weight' => 50,
             '#markup' => t('
-            <p>It also provides optional styling for the various user displays. Built on Less, CSS Grids, and mobile responsive.</p><p>&nbsp;</p>
+            <p>It also provides optional styling for the various user displays. Built on Less, CSS Grid, and mobile responsive design.</p><p>&nbsp;</p>
             '),
         ];
         
