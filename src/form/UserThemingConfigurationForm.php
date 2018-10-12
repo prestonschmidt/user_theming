@@ -58,42 +58,19 @@ class UserThemingConfigurationForm extends ConfigFormBase {
             '#title' => t('Use Module Styles?'),
             '#required' => true,
             '#options' => $useModuleStyles,
-            '#description' => t('If set to yes, the module will provide styles for user entities. If set to no, no styling will be provided. '),
+            '#description' => t('If set to "Yes", the module will provide styles for user entities. If set to "No", no styling will be provided. '),
             '#default_value' => $config->get('use_module_styles') ? : 'yes',
         );
         
-        $form['form_details_title'] = [
+        $form['form_details'] = [
             '#type' => 'item',
             '#weight' => 10,
-            '#markup' => t('<h3>This module provides:</h3>
-            '),
-        ];
-        
-        $form['form_display_modes'] = [
-            '#type' => 'item',
-            '#weight' => 20,
-            '#markup' => t('<p><strong>Display Modes:</strong> Full, Compact, Token</p>
-            '),
-        ];
-        
-        $form['form_template_files'] = [
-            '#type' => 'item',
-            '#weight' => 30,
-            '#markup' => t('<p><strong>Template Files:</strong> user--full.html.twig, user--compact.html.twig, user--token.html.twig</p>
-            '),
-        ];
-        
-        $form['form_views'] = [
-            '#type' => 'item',
-            '#weight' => 40,
-            '#markup' => t('<p><strong>Views:</strong> user_compact_views_block, user_token_views_block</p>
-            '),
-        ];
-        
-        $form['form_fields'] = [
-            '#type' => 'item',
-            '#weight' => 40,
-            '#markup' => t('<p><strong>Fields:</strong> User First Name, User Last Name, User Title, User Picture</p>
+            '#markup' => t('
+<h3>This module provides:</h3>
+<p><strong>Display Modes:</strong> Full, Compact, Token</p>
+<p><strong>Template Files:</strong> user--full.html.twig, user--compact.html.twig, user--token.html.twig</p>
+<p><strong>Views:</strong> user_compact_views_block, user_token_views_block</p>
+<p><strong>Fields:</strong> User First Name, User Last Name, User Title, User Picture</p>
             '),
         ];
         
@@ -101,7 +78,7 @@ class UserThemingConfigurationForm extends ConfigFormBase {
             '#type' => 'item',
             '#weight' => 50,
             '#markup' => t('
-            <p>It also provides optional styling for the various user displays. Built on Less, CSS Grids, and mobile responsive.</p>
+            <p>It also provides optional styling for the various user displays. Built on Less, CSS Grids, and mobile responsive.</p><p>&nbsp;</p>
             '),
         ];
         

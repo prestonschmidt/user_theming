@@ -8,6 +8,10 @@
 
 
 
+/**
+ ** Add user display mode template suggestions.
+**/
+
 function user_theming_theme_suggestions_user(array $variables) {
     return [
         'user__' . $variables['elements']['#view_mode']
@@ -21,6 +25,10 @@ function user_theming_theme_suggestions_user(array $variables) {
 
 
 
+
+/**
+ ** Add user template files to the theme.
+**/
 
 function user_theming_theme($existing, $type, $theme, $path) {
     
@@ -50,7 +58,7 @@ function user_theming_theme($existing, $type, $theme, $path) {
 
 
 /**
- ** Add our styles library.
+ ** Add styles library.
 **/
 
 function user_theming_preprocess_page(&$variables) {
