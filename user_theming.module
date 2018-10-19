@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\user\Entity;
+
 
 
 
@@ -68,6 +70,28 @@ function user_theming_preprocess_page(&$variables) {
     
     if ($useModuleStylesRadio != 'no') {
         $variables['#attached']['library'][] = 'user_theming/styles';
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+function user_theming_preprocess_user(&$variables) {
+    
+    $config = \Drupal::config('user_theming.user_theming_settings');
+    $variables['showActiveSessionMark'] = $config->get('show_active_session_mark');
+
+    if ($variables['elements']['#user']->access->value > (time() - 800)) {
+        $variables['activeUserMark'] = 1;
+    }
+    else {
+        $variables['activeUserMark'] = 0;
     }
     
 }

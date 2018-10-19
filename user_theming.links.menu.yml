@@ -1,5 +1,5 @@
 user_theming.settings:
-  title: 'User Theming'
+  title: 'User Theming Settings'
   parent: prototype_suite.group.admin
   description: 'Configuration settings for the "User Theming" module. '
   route_name: user_theming.settings

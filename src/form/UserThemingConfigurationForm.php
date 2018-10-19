@@ -33,7 +33,7 @@ class UserThemingConfigurationForm extends ConfigFormBase {
         
         $config = $this->config('user_theming.user_theming_settings');
         
-        $useModuleStyles = array(
+        $yesnoOptions = array(
             'yes' => t('Yes'),
             'no' => t('No'),
         );
@@ -43,7 +43,7 @@ class UserThemingConfigurationForm extends ConfigFormBase {
             '#markup' => t('<h2>Available Configuration Options</h2>'),
         ];
         
-        $form['user_theming_styles_wrapper'] = array(
+        $form['user_module_styles_wrapper'] = array(
             '#type' => 'fieldset',
             '#weight' => 1,
             '#attributes' => array(
@@ -53,13 +53,32 @@ class UserThemingConfigurationForm extends ConfigFormBase {
             ),
         );
                 
-        $form['user_theming_styles_wrapper']['use_module_styles'] = array(
+        $form['user_module_styles_wrapper']['use_module_styles'] = array(
             '#type' => 'radios',
             '#title' => t('Use Module Styles?'),
             '#required' => true,
-            '#options' => $useModuleStyles,
+            '#options' => $yesnoOptions,
             '#description' => t('If set to "Yes", the module will provide styles for user entities. If set to "No", no styling will be provided. '),
             '#default_value' => $config->get('use_module_styles') ? : 'yes',
+        );
+        
+        $form['show_active_session_mark_wrapper'] = array(
+            '#type' => 'fieldset',
+            '#weight' => 5,
+            '#attributes' => array(
+                'class' => array(
+                    'show-active-session-mark',
+                ),
+            ),
+        );
+        
+        $form['show_active_session_mark_wrapper']['show_active_session_mark'] = array(
+            '#type' => 'radios',
+            '#title' => t('Show active user mark?'),
+            '#required' => true,
+            '#options' => $yesnoOptions,
+            '#description' => t('If set to "Yes", this will show an active session mark. '),
+            '#default_value' => $config->get('show_active_session_mark') ? : 'yes',
         );
         
         $form['form_details'] = [
@@ -93,7 +112,8 @@ class UserThemingConfigurationForm extends ConfigFormBase {
     public function submitForm(array &$form, FormStateInterface $form_state) {
         $values = $form_state->getValues();
         
-        $this->config('user_theming.user_theming_settings')->set('use_module_styles', $values['use_module_styles'])->save();
+        $this->config('user_theming.user_theming_settings')->set('use_module_styles', $values['use_module_styles']);
+        $this->config('user_theming.user_theming_settings')->set('show_active_session_mark', $values['show_active_session_mark'])->save();
         parent::submitForm($form, $form_state);
         
     }

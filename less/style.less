@@ -99,18 +99,7 @@
             color: #000;
             background: rgba(255, 255, 255, 0.5);
             z-index: 200;
-        }
-        
-        span.mark-active-user {
-            position: absolute;
-            top: 4px;
-            right: 4px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: @color-green;
-            z-index: 100;
-        }
+        }        
     }    
 }
 
@@ -204,21 +193,10 @@
         position: relative;
         display: inline-block;
         vertical-align: middle;
-        padding: 0 0 0 10px;
+        padding: 0 25px 0 10px;
         margin: 0;
         font-size: 80%;
         color: @color-dark;
-        
-        span.mark-active-user {
-            position: absolute;
-            top: 5px;
-            right: -15px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: @color-green;
-            z-index: 100;
-        }
     }
 }
 
@@ -259,6 +237,32 @@
         }
     }
     
+}
+
+
+
+
+
+
+
+
+
+span.status-active-mark {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    z-index: 100;
+    
+    &.active {
+        background: @color-green;
+    }
+    
+    &.inactive {
+        background: #ccc;
+    }
 }
 
 

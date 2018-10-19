@@ -2,9 +2,7 @@
     
     <div class="user-token-content-wrapper">
         {{ content }}
-        {% if user.login.0.value > 0 %}
-            <span class="mark-active-user"></span>
-        {% endif %}
+        {% if activeUserMark == 1 and showActiveSessionMark == 'yes' %}<span class="status-active-mark active"></span>{% elseif activeUserMark == 0 and showActiveSessionMark == 'yes' %}<span class="status-active-mark inactive"></span>{% endif %}
         <a href="/user/{{ user.uid.0.value }}"><p>{{ user.name.0.value }}</p></a>
     </div>
     
