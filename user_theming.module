@@ -59,29 +59,6 @@ function user_theming_theme($existing, $type, $theme, $path) {
 
 
 
-/**
- ** Add styles library.
-**/
-
-function user_theming_preprocess_page(&$variables) {
-    
-    $config = \Drupal::config('user_theming.user_theming_settings');
-    $useModuleStylesRadio = $config->get('use_module_styles');
-    
-    if ($useModuleStylesRadio != 'no') {
-        $variables['#attached']['library'][] = 'user_theming/styles';
-    }
-    
-}
-
-
-
-
-
-
-
-
-
 function user_theming_preprocess_user(&$variables) {
     
     $config = \Drupal::config('user_theming.user_theming_settings');
