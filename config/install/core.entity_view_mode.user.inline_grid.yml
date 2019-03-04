@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.inline_grid
+label: 'Inline Grid'
+targetEntityType: user
+cache: true

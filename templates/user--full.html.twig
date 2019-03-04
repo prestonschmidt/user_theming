@@ -1,34 +1,26 @@
 <div class="user-full-wrapper">
-    
-    {% if content.user_picture | render %}
-        <div class="user-full-image-wrapper user-item">
-            {{ content.user_picture }}
-        </div>
-    {% endif %}
-    
-    {% if content.field_user_first_name | render or content.field_user_last_name | render or content.field_user_title | render %}
-        <div class="user-details user-item">
-
-            {% if content.field_user_first_name | render or content.field_user_last_name | render %}
-                <h3>{{ content.field_user_first_name }}  {{ content.field_user_last_name }}</h3>
-            {% endif %}
-
-            {% if content.field_user_title | render %}
-                <p>{{ content.field_user_title }}</p>
-            {% endif %}
-            
-            {% if content.private_message_link | render %}
-                {{ content.private_message_link }}
-            {% endif %}
-            
-        </div>
-    {% endif %}
-    
-    {% if content.field_user_bio | render %}
-        <div class="user-info user-item">
-            <h2>Biography</h2>
-            <p>{{ content.field_user_bio }}</p>
-        </div>
-    {% endif %}
-        
+  {% if content.user_picture %}
+    <div class="user-full-image-wrapper user-item">
+      {{ content.user_picture }}
+    </div>
+  {% endif %}
+  {% if content.field_user_first_name or content.field_user_last_name or content.field_user_title %}
+    <div class="user-details user-item">
+      {% if content.field_user_first_name or content.field_user_last_name %}
+        <h3>{{ content.field_user_first_name }} {{ content.field_user_last_name }}</h3>
+      {% endif %}
+      {% if content.field_user_title %}
+        <p>{{ content.field_user_title }}</p>
+      {% endif %}
+      {% if content.private_message_link %}
+        {{ content.private_message_link }}
+      {% endif %}
+    </div>
+  {% endif %}
+  {% if content.field_user_bio %}
+    <div class="user-info user-item">
+      <h2>Biography</h2>
+      <p>{{ content.field_user_bio }}</p>
+    </div>
+  {% endif %}
 </div>

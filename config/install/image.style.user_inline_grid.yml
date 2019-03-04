@@ -1,14 +1,14 @@
 langcode: en
 status: true
 dependencies: {  }
-name: user_compact
-label: 'User Compact Style'
+name: user_inline_grid
+label: 'User inline_grid Style'
 effects:
   f4169ee9-b899-4585-9d38-74c160409f20:
     uuid: ''
     id: image_scale_and_crop
     weight: 1
     data:
-      width: 200
-      height: 200
+      width: 480
+      height: 480
       upscale: false

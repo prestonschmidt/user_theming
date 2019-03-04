@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_user_last_name
+    - field.storage.user.user_title
   module:
     - user
-id: user.user.field_user_last_name
-field_name: field_user_last_name
+id: user.user.user_title
+field_name: user_title
 entity_type: user
 bundle: user
-label: 'User Last Name'
+label: 'User Title'
 description: ''
 required: false
 translatable: false

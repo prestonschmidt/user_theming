@@ -1,17 +1,17 @@
 user_theming.settings:
-  path: '/admin/config/prototype-suite/user-theming'
+  path: '/admin/config/tinsel-suite/user-theming'
   defaults:
     _form: '\Drupal\user_theming\Form\UserThemingConfigurationForm'
-    _title: '<em>User Theming</em> Module Configuration'
+    _title: 'User Theming Module Configuration'
   requirements:
     _permission: 'administer site configuration'
   options:
     _admin_route: TRUE
     
-system.admin_config_prototype_suite:
-  path: '/admin/config/prototype-suite'
+system.admin_config_tinsel_suite:
+  path: '/admin/config/tinsel-suite'
   defaults:
     _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
-    _title: 'Prototype Suite'
+    _title: 'Tinsel Suite'
   requirements:
     _permission: 'access administration pages'

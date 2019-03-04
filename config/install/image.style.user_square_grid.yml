@@ -1,14 +1,14 @@
 langcode: en
 status: true
 dependencies: {  }
-name: user_token
-label: 'User Token Style'
+name: user_square_grid
+label: 'User square_grid Style'
 effects:
   f4169ee9-b899-4585-9d38-74c160409f20:
     uuid: ''
     id: image_scale_and_crop
     weight: 1
     data:
-      width: 480
-      height: 480
+      width: 200
+      height: 200
       upscale: false

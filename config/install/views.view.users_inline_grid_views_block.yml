@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.user.compact
+    - core.entity_view_mode.user.inline_grid
   module:
     - better_exposed_filters
     - user
-id: users_compact_views_block
-label: 'Users Compact Views Block'
+id: users_inline_grid_views_block
+label: 'Users Inline Grid Views Block'
 module: views
 description: ''
 tag: ''
@@ -106,7 +106,7 @@ display:
         type: 'entity:user'
         options:
           relationship: none
-          view_mode: compact
+          view_mode: inline_grid
       fields:
         name:
           id: name

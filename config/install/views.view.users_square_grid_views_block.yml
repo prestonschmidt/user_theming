@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.user.token
+    - core.entity_view_mode.user.square_grid
   module:
     - better_exposed_filters
     - user
-id: users_token_views_block
-label: 'Users Token Views Block'
+id: users_square_grid_views_block
+label: 'Users Square Grid Views Block'
 module: views
 description: ''
 tag: ''
@@ -106,7 +106,7 @@ display:
         type: 'entity:user'
         options:
           relationship: none
-          view_mode: token
+          view_mode: square_grid
       fields:
         name:
           id: name

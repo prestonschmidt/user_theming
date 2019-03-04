@@ -1,13 +1,13 @@
 user_theming.settings:
   title: 'User Theming Settings'
-  parent: prototype_suite.group.admin
+  parent: tinsel_suite.group.admin
   description: 'Configuration settings for the "User Theming" module. '
   route_name: user_theming.settings
   weight: -100
   
-prototype_suite.group.admin:
-  title: 'Prototype Suite'
-  route_name: system.admin_config_prototype_suite
+tinsel_suite.group.admin:
+  title: 'Tinsel Suite'
+  route_name: system.admin_config_tinsel_suite
   parent: system.admin_config
-  description: 'Prototype Suite Configuration'
+  description: 'Tinsel Suite Configuration'
   weight: -999
