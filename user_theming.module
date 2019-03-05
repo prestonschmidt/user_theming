@@ -5,7 +5,7 @@ use Drupal\user\Entity;
 /**
  * Implements hook_theme_suggestions_user().
  *
- * Adds user display mode template suggestions.
+ * Add user display mode template suggestions.
  * 
  * @inheritdoc
  */
@@ -18,7 +18,7 @@ function user_theming_theme_suggestions_user(array $variables) {
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  *
- * Adds views template suggestions.
+ * Add views template suggestions.
  * 
  * @inheritdoc
  */
@@ -31,12 +31,11 @@ function user_theming_theme_suggestions_views_view_alter(array &$suggestions, ar
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  *
- * Adds views unformatted template suggestions.
+ * Add views unformatted template suggestions.
  * 
  * @inheritdoc
  */
 function user_theming_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
-  drupal_set_message('views_view_unformatted__' . $variables['view']->id());
   return [
     'views_view_unformatted__' . $variables['view']->id()
   ];
@@ -45,38 +44,46 @@ function user_theming_theme_suggestions_views_view_unformatted_alter(array &$sug
 /**
  * Implements hook_theme().
  *
- * Adds user template files to the theme.
+ * Add user template files to the theme.
  * 
  * @inheritdoc
  */
 function user_theming_theme($existing, $type, $theme, $path) {
   return [
+    // User templates.
     'user__full' => [
       'template' => 'user--full',
-      'base hook' => 'user',
-    ],
-    'user__square_grid' => [
-      'template' => 'user--square-grid',
       'base hook' => 'user',
     ],
     'user__inline_grid' => [
       'template' => 'user--inline-grid',
       'base hook' => 'user',
     ],
-    'views_view__users_square_grid_views_block' => [
-      'template' => 'views-view--users-square-grid-views-block',
-      'base hook' => 'views_view',
+    'user__square_grid' => [
+      'template' => 'user--square-grid',
+      'base hook' => 'user',
     ],
+    // Field templates.
+    'field__user_picture' => [
+      'template' => 'field--user-picture',
+      'base hook' => 'field',
+    ],
+    // Views templates.
     'views_view__users_inline_grid_views_block' => [
       'template' => 'views-view--users-inline-grid-views-block',
       'base hook' => 'views_view',
     ],
-    'views_view_unformatted__users_square_grid_views_block' => [
-      'template' => 'views-view-unformatted--users-square-grid-views-block',
-      'base hook' => 'views_view_unformatted',
+    'views_view__users_square_grid_views_block' => [
+      'template' => 'views-view--users-square-grid-views-block',
+      'base hook' => 'views_view',
     ],
+    // Views unformatted templates.
     'views_view_unformatted__users_inline_grid_views_block' => [
       'template' => 'views-view-unformatted--users-inline-grid-views-block',
+      'base hook' => 'views_view_unformatted',
+    ],
+    'views_view_unformatted__users_square_grid_views_block' => [
+      'template' => 'views-view-unformatted--users-square-grid-views-block',
       'base hook' => 'views_view_unformatted',
     ],
   ];
@@ -85,28 +92,47 @@ function user_theming_theme($existing, $type, $theme, $path) {
 /**
  * Implements hook_preprocess_user().
  *
- * Try to show active user mark.
- * 
  * @inheritdoc
  */
 function user_theming_preprocess_user(&$variables) {
+
+  // Get user object.
+  $user = $variables['elements']['#user'];
+
+  // Get our form config.
   $config = \Drupal::config('user_theming.user_theming_settings');
+
+  // Set show_active_session_mark config value to $variables.
   $variables['showActiveSessionMark'] = $config->get('show_active_session_mark');
-  if ($variables['elements']['#user']->access->value > (time() - 800)) {
-    $variables['activeUserMark'] = 1;
+
+  // Set use_module_provided_css.
+  $useModuleProvidedCSS = $config->get('use_module_provided_css');
+
+  // Check if we want to show the active user mark.
+  if ($user->access->value > (time() - 800)) {
+    $variables['activeUserMark'] = [
+      '#type' => 'inline_template',
+      '#template' => '<span class="status-active-mark active"></span>',
+    ];
   }
   else {
-    $variables['activeUserMark'] = 0;
+    $variables['activeUserMark'] = [
+      '#type' => 'inline_template',
+      '#template' => '<span class="status-active-mark inactive"></span>',
+    ];
   }
-}
 
-/**
- * Implements hook_preprocess_page().
- *
- * Adds our styles library.
- * 
- * @inheritdoc
- */
-function user_theming_preprocess_page(&$variables) {
-  $variables['#attached']['library'][] = 'user_theming/styles';
+  // Set dynamic user name.
+  if (!$user->user_last_name->isEmpty()) {
+    $variables['userName'] = $user->user_first_name->value;
+  }
+  else {
+    $variables['userName'] = $user->name->value;
+  }
+
+  // Add our styles library.
+  if ($useModuleProvidedCSS == 'yes') {
+    $variables['#attached']['library'][] = 'user_theming/styles';
+  }
+  
 }

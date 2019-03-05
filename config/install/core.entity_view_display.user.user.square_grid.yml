@@ -3,11 +3,12 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.square_grid
+    - field.field.user.user.user_dob
     - field.field.user.user.user_bio
     - field.field.user.user.user_first_name
     - field.field.user.user.user_last_name
-    - field.field.user.user.user_title
     - field.field.user.user.user_picture
+    - field.field.user.user.user_title
     - image.style.user_square_grid
   module:
     - image
@@ -17,25 +18,19 @@ targetEntityType: user
 bundle: user
 mode: square_grid
 content:
-  user_first_name:
-    type: string
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   user_picture:
     type: image
     weight: 0
     region: content
     settings:
       image_style: user_square_grid
-      image_link: content
+      image_link: ''
     third_party_settings: {  }
     label: hidden
 hidden:
+  user_dob: true
+  member_for: true
   user_bio: true
+  user_first_name: true
   user_last_name: true
   user_title: true
-  member_for: true

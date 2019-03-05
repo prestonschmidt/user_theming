@@ -1,6 +1,6 @@
 {% if content.user_picture or user.name.0.value %}
   <div class="user-inline-grid-wrapper">
     {{ content.user_picture }}
-    <p>{{ user.name.0.value }}{% if activeUserMark == 1 and showActiveSessionMark == 'yes' %}<span class="status-active-mark active"></span>{% elseif activeUserMark == 0 and showActiveSessionMark == 'yes' %}<span class="status-active-mark inactive"></span>{% endif %}</p>
+    <p>{{ userName }}{% if showActiveSessionMark == 'yes' %}{{ activeUserMark }}{% endif %}</p>
   </div>
 {% endif %}

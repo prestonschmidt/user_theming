@@ -1,11 +1,15 @@
 name: User Theming
 type: module
 description: 'Creates usable views blocks of users. Provides user template files and styling. '
-package: 'Prototype Suite'
+package: 'Tinsel Suite'
 core: 8.x
 hidden: false
 dependencies:
-  - better_exposed_filters
-  - token
-  - user
+  - drupal:better_exposed_filters
+  - drupal:datetime
+  - drupal:filter
+  - drupal:system
+  - drupal:token
+  - drupal:user
+  - drupal:views
 configure: user_theming.settings

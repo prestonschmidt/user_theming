@@ -1,26 +1,27 @@
 <div class="user-full-wrapper">
+
   {% if content.user_picture %}
     <div class="user-full-image-wrapper user-item">
       {{ content.user_picture }}
     </div>
   {% endif %}
-  {% if content.field_user_first_name or content.field_user_last_name or content.field_user_title %}
+
+  {% if content.user_first_name or content.user_last_name or content.user_title %}
     <div class="user-details user-item">
-      {% if content.field_user_first_name or content.field_user_last_name %}
-        <h3>{{ content.field_user_first_name }} {{ content.field_user_last_name }}</h3>
+      {% if content.user_first_name or content.user_last_name %}
+        <h3>{{ content.user_first_name }} {{ content.user_last_name }}</h3>
       {% endif %}
-      {% if content.field_user_title %}
-        <p>{{ content.field_user_title }}</p>
-      {% endif %}
-      {% if content.private_message_link %}
-        {{ content.private_message_link }}
+      {% if content.user_title %}
+        <p>{{ content.user_title }}</p>
       {% endif %}
     </div>
   {% endif %}
-  {% if content.field_user_bio %}
+
+  {% if content.user_bio %}
     <div class="user-info user-item">
       <h2>Biography</h2>
-      <p>{{ content.field_user_bio }}</p>
+      <p>{{ content.user_bio }}</p>
     </div>
   {% endif %}
+  
 </div>
